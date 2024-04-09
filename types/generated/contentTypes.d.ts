@@ -362,6 +362,89 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiMenuDiarioMenuDiario extends Schema.CollectionType {
+  collectionName: 'menus_diarios';
+  info: {
+    singularName: 'menu-diario';
+    pluralName: 'menus-diarios';
+    displayName: 'MenusDiarios';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dia: Attribute.String & Attribute.Required;
+    precio: Attribute.Decimal & Attribute.Required;
+    sum_precio: Attribute.Decimal;
+    primero: Attribute.Relation<
+      'api::menu-diario.menu-diario',
+      'oneToOne',
+      'api::menu-diario.menu-diario'
+    >;
+    segundo: Attribute.Relation<
+      'api::menu-diario.menu-diario',
+      'oneToOne',
+      'api::menu-diario.menu-diario'
+    >;
+    postre: Attribute.Relation<
+      'api::menu-diario.menu-diario',
+      'oneToOne',
+      'api::menu-diario.menu-diario'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-diario.menu-diario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-diario.menu-diario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPlatoPlato extends Schema.CollectionType {
+  collectionName: 'platos';
+  info: {
+    singularName: 'plato';
+    pluralName: 'platos';
+    displayName: 'Platos';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    foto: Attribute.Media;
+    nombre: Attribute.String & Attribute.Required & Attribute.Unique;
+    precio: Attribute.Decimal & Attribute.Required;
+    alergenos: Attribute.Component<'alergenos.alergenos', true>;
+    tipo_plato: Attribute.Enumeration<['Primero', 'Segundo', 'Postre']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::plato.plato',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::plato.plato',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -896,6 +979,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::menu-diario.menu-diario': ApiMenuDiarioMenuDiario;
+      'api::plato.plato': ApiPlatoPlato;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

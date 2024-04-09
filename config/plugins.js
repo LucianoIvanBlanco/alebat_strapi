@@ -7,7 +7,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: 'aws-s3',
       providerOptions: {
-        baseUrl: env('https://prueba-tecnica-strapi.s3.eu-west-1.amazonaws.com/'),
+        baseUrl: env('CDN_URL'),
         rootPath: `${env('CDN_ROOT_PATH')}${añoActual}/${mesActual}`,
         s3Options: {
           accessKeyId: env('AWS_ACCESS_KEY_ID'),

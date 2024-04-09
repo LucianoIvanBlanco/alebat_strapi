@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_alergenos_alergenos",
+  "info": {
+    "displayName": "Alergenos",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "ingrediente": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

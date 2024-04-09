@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus_diarios",
+  "info": {
+    "singularName": "menu-diario",
+    "pluralName": "menus-diarios",
+    "displayName": "MenusDiarios",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dia": {
+      "type": "string",
+      "required": true
+    },
+    "precio": {
+      "type": "decimal",
+      "required": true
+    },
+    "sum_precio": {
+      "type": "decimal"
+    },
+    "primero": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-diario.menu-diario"
+    },
+    "segundo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-diario.menu-diario"
+    },
+    "postre": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-diario.menu-diario"
+    }
+  }
+}
