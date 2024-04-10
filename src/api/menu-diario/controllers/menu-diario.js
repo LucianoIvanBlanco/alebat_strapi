@@ -23,5 +23,6 @@ module.exports = createCoreController('api::menu-diario.menu-diario', ({strapi})
         });
 
         ctx.body = postres;
+        console.log(postres);
     }
 }));
