@@ -26,17 +26,17 @@
     "primero": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu-diario.menu-diario"
+      "target": "api::plato.plato"
     },
     "segundo": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu-diario.menu-diario"
+      "target": "api::plato.plato"
     },
     "postre": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu-diario.menu-diario"
+      "target": "api::plato.plato"
     }
   }
 }

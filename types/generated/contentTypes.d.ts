@@ -380,17 +380,17 @@ export interface ApiMenuDiarioMenuDiario extends Schema.CollectionType {
     primero: Attribute.Relation<
       'api::menu-diario.menu-diario',
       'oneToOne',
-      'api::menu-diario.menu-diario'
+      'api::plato.plato'
     >;
     segundo: Attribute.Relation<
       'api::menu-diario.menu-diario',
       'oneToOne',
-      'api::menu-diario.menu-diario'
+      'api::plato.plato'
     >;
     postre: Attribute.Relation<
       'api::menu-diario.menu-diario',
       'oneToOne',
-      'api::menu-diario.menu-diario'
+      'api::plato.plato'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
